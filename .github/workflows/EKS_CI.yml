@@ -10,6 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Show repo structure (debugging)
+        run: ls -R
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -21,18 +24,21 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        working-directory: EKS-Fargate
-        run: |
-          terraform init 
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
+        run: terraform init
 
       - name: Terraform Format
-        working-directory: EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: terraform fmt
 
+      - name: Terraform Validate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
+        run: terraform validate
+
       - name: Terraform Plan
-        working-directory: EKS-Fargate
-        run: terraform plan 
-      
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
+        run: terraform plan
+
       - name: Terraform Apply
-        working-directory: EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: terraform apply -auto-approve
