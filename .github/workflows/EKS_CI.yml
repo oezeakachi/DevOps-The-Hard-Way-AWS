@@ -21,18 +21,18 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        working-directory: DevOps-The-Hard-Way-AWS/Terraform-AWS-Services-Creation/EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: |
           terraform init 
 
       - name: Terraform Format
-        working-directory: DevOps-The-Hard-Way-AWS/Terraform-AWS-Services-Creation/EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: terraform fmt
 
       - name: Terraform Plan
-        working-directory: DevOps-The-Hard-Way-AWS/Terraform-AWS-Services-Creation/EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: terraform plan 
       
       - name: Terraform Apply
-        working-directory: DevOps-The-Hard-Way-AWS/Terraform-AWS-Services-Creation/EKS-Fargate
+        working-directory: Terraform-AWS-Services-Creation/EKS-Fargate
         run: terraform apply -auto-approve
