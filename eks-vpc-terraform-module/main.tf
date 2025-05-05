@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     key            = "terraform.tfstate"
-    region         = "us-east-2"
+    region         = "eu-west-1"
     encrypt        = true
   }
 }

@@ -1,8 +1,10 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-devopsthehardway"
+    bucket = "tf-state-obi"
     key    = "ecr-terraform.tfstate"
-    region = "us-east-1"
+    region = "eu-west-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
   }
   required_providers {
     aws = {
@@ -12,7 +14,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-west-1"
 }
 
 resource "aws_ecr_repository" "devopsthehardway-ecr-repo" {
